@@ -12,6 +12,31 @@ KNN Image Classifier example with p5.js
 let knn;
 let video;
 
+var countdownnumber=5;
+var countdownid;
+
+
+
+function countdownfunc(){
+ var x=document.getElementById("countdown");
+ x.innerHTML=countdownnumber;
+ if (countdownnumber==0){ 
+  x.style.display = "none";
+  predict();
+  clearTimeout(countdownid);
+ }else{
+  countdownnumber--;
+  if(countdownid){
+   clearTimeout(countdownid);
+  }
+  countdownid=setTimeout(countdownfunc,1000);
+ }
+}
+ 
+
+
+
+
 function setup() {
   noCanvas();
   
@@ -23,13 +48,14 @@ function setup() {
   knn.load('test.json', modelLoaded);
   
   createButtons();
+
 }
 
 function createButtons() {
  
   // Predict Button
   buttonPredict = select('#buttonNew');
-  buttonPredict.mousePressed(restart);
+  buttonPredict.mousePressed(countdownfunc);
 }
 
 
