@@ -116,8 +116,8 @@ function gotResults(results) {
   //select('#result').html(msg);
 
   setTimeout(function(){
-    win();
-  }, 3000);
+    predict();
+  }, 50);
 }
 
 // Clear the data in one class
