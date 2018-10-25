@@ -14,6 +14,9 @@ let video;
 let i = 0;
 var countdownnumber=5;
 var countdownid;
+var predict_t;
+var play_t;
+var win_t;
 
 const st = document.getElementById("startbtn");
 const cd = document.getElementById("countdown");
@@ -86,6 +89,7 @@ function delay() {
 }
 
 function win() {
+	setTimeout.clear(win_t);
   cd.style.display = "";
   cd.innerHTML="我贏";
 	countdownnumber=5;
@@ -95,6 +99,8 @@ function win() {
 
 
 function play() {
+	setTimeout.clear(predict_t);
+	setTimeout.clear(play_t);
   if (i == 1) {
     //msg = '剪刀';
 	document.getElementById("myImg").src = "p2.jpg";
@@ -105,7 +111,7 @@ function play() {
     //msg = '布';
 	document.getElementById("myImg").src = "p1.jpg";
   }
-   setTimeout(function(){
+   win_t = setTimeout(function(){
     win();
   }, 3000);  
 }
@@ -124,10 +130,10 @@ function gotResults(results) {
 
   //select('#result').html(msg);
 
-  setTimeout(function(){
+  predict_t = setTimeout(function(){
     predict();
   }, 50);
-  setTimeout(function(){
+  play_t = setTimeout(function(){
     play();
   }, 500);
 }
