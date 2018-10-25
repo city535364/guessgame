@@ -17,6 +17,7 @@ var countdownid;
 var predict_t;
 var play_t;
 var win_t;
+var p_time=0;
 
 const st = document.getElementById("startbtn");
 const cd = document.getElementById("countdown");
@@ -99,8 +100,7 @@ function win() {
 
 
 function play() {
-	setTimeout.clear(predict_t);
-	setTimeout.clear(play_t);
+
   if (i == 1) {
     //msg = '剪刀';
 	document.getElementById("myImg").src = "p2.jpg";
@@ -126,16 +126,25 @@ function predict() {
 // Show the results
 function gotResults(results) {
   let msg;
+  p_time++;
   i = results.classIndex;
 
   //select('#result').html(msg);
-
-  predict_t = setTimeout(function(){
-    predict();
-  }, 50);
-  play_t = setTimeout(function(){
-    play();
-  }, 500);
+ if (p_time==10){ 
+   p_time== 0;
+   play();  
+   clearTimeout(predict_t);
+ 
+ 
+  
+ }else{
+   if(predict_t){
+      clearTimeout(predict_t);
+   }
+   predict_t = setTimeout(function(){
+     predict();
+   }, 50);
+  
 }
 
 // Clear the data in one class
