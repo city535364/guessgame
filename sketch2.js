@@ -82,7 +82,7 @@ function modelLoading() {
 function restart() {
 	countdownnumber=5;
 	st.style.display = "";
-   cd.style.display = "none";
+   
 }
 
 function win() {
