@@ -25,7 +25,8 @@ function countdownfunc(){
  cd.innerHTML=countdownnumber;
  if (countdownnumber==0){ 
   cd.style.display = "none";
-  predict();
+  //predict();
+  setTimeout(delay,500);
   clearTimeout(countdownid);
  }else{
   countdownnumber--;
@@ -79,8 +80,8 @@ function modelLoading() {
   select('#loading').html('猜拳模組載入中……');
 }
 
-function restart() {
-
+function delay() {
+   predict();
    
 }
 
