@@ -15,13 +15,16 @@ let video;
 var countdownnumber=5;
 var countdownid;
 
+const st = document.getElementById("startbtn");
+const cd = document.getElementById("countdown");
 
 
 function countdownfunc(){
- var x=document.getElementById("countdown");
- x.innerHTML=countdownnumber;
+  st.style.display = "none";
+ 
+ cd.innerHTML=countdownnumber;
  if (countdownnumber==0){ 
-  x.style.display = "none";
+  cd.style.display = "none";
   predict();
   clearTimeout(countdownid);
  }else{
@@ -55,6 +58,7 @@ function createButtons() {
  
   // Predict Button
   buttonPredict = select('#buttonNew');
+
   buttonPredict.mousePressed(countdownfunc);
 }
 
@@ -74,6 +78,21 @@ function modelLoaded() {
 function modelLoading() {
   select('#loading').html('猜拳模組載入中……');
 }
+
+function restart() {
+	countdownnumber=5;
+	st.style.display = "";
+   cd.style.display = "none";
+}
+
+function win() {
+  cd.style.display = "";
+  cd.innerHTML="我贏";
+  setTimeout(function(){
+    restart();
+  }, 3000);
+}
+
 
 
 // Predict the current frame.
@@ -98,8 +117,8 @@ function gotResults(results) {
   //select('#result').html(msg);
 
   setTimeout(function(){
-    predict();
-  }, 50);
+    win();
+  }, 3000);
 }
 
 // Clear the data in one class
