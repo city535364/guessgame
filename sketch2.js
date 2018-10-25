@@ -11,7 +11,7 @@ KNN Image Classifier example with p5.js
 
 let knn;
 let video;
-
+let i = 0;
 var countdownnumber=5;
 var countdownid;
 
@@ -25,8 +25,8 @@ function countdownfunc(){
  cd.innerHTML=countdownnumber;
  if (countdownnumber==0){ 
   cd.style.display = "none";
-  //predict();
-  setTimeout(delay,500);
+  predict();
+  //setTimeout(delay,500);
   clearTimeout(countdownid);
  }else{
   countdownnumber--;
@@ -52,7 +52,7 @@ function setup() {
   knn.load('test.json', modelLoaded);
   
   createButtons();
-
+  predict()
 }
 
 function createButtons() {
@@ -94,6 +94,23 @@ function win() {
 }
 
 
+function play() {
+  if (i == 1) {
+    //msg = '剪刀';
+	document.getElementById("myImg").src = "p2.jpg";
+  } else if (i == 2) {
+    //msg = '石頭';
+	document.getElementById("myImg").src = "p3.jpg";
+  } else if (i == 3) {
+    //msg = '布';
+	document.getElementById("myImg").src = "p1.jpg";
+  }
+   setTimeout(function(){
+    win();
+  }, 3000);  
+}
+
+
 
 // Predict the current frame.
 function predict() {
@@ -103,22 +120,16 @@ function predict() {
 // Show the results
 function gotResults(results) {
   let msg;
+  i = results.classIndex;
 
-  if (results.classIndex == 1) {
-    //msg = '剪刀';
-	document.getElementById("myImg").src = "p2.jpg";
-  } else if (results.classIndex == 2) {
-    //msg = '石頭';
-	document.getElementById("myImg").src = "p3.jpg";
-  } else if (results.classIndex == 3) {
-    //msg = '布';
-	document.getElementById("myImg").src = "p1.jpg";
-  }
   //select('#result').html(msg);
 
   setTimeout(function(){
-    clearClass();
-  }, 3000);
+    predict();
+  }, 50);
+  setTimeout(function(){
+    play();
+  }, 500);
 }
 
 // Clear the data in one class
