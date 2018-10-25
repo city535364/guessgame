@@ -29,7 +29,7 @@ function countdownfunc(){
  cd.innerHTML=countdownnumber;
  if (countdownnumber==0){ 
   cd.style.display = "none";
-  predict();
+  showpic();
   //setTimeout(delay,500);
   clearTimeout(countdownid);
  }else{
@@ -64,13 +64,13 @@ function createButtons() {
   // Predict Button
   buttonPredict = select('#buttonNew');
 
-  buttonPredict.mousePressed(countdownfunc);
+  buttonPredict.mousePressed(restart());
 }
 
 
 function restart() {
-
-   predict();
+   cd.style.display = "";
+   countdownfunc();
 
 }
 
@@ -84,14 +84,10 @@ function modelLoading() {
   select('#loading').html('猜拳模組載入中……');
 }
 
-function delay() {
-   predict();
-   
-}
 
 function win() {
 	setTimeout.clear(win_t);
-  cd.style.display = "";
+  
   cd.innerHTML="我贏";
 	countdownnumber=5;
 	st.style.display = "";
@@ -99,7 +95,7 @@ function win() {
 }
 
 
-function play() {
+function showpic() {
 
   if (i == 1) {
     //msg = '剪刀';
@@ -111,6 +107,8 @@ function play() {
     //msg = '布';
 	document.getElementById("myImg").src = "p1.jpg";
   }
+
+  
    win_t = setTimeout(function(){
     win();
   }, 3000);  
@@ -130,17 +128,7 @@ function gotResults(results) {
   i = results.classIndex;
 
   //select('#result').html(msg);
- if (p_time==10){ 
-   p_time== 0;
-   play();  
-   clearTimeout(predict_t);
- 
- 
-  
- }else{
-   if(predict_t){
-      clearTimeout(predict_t);
-   }
+
    predict_t = setTimeout(function(){
      predict();
    }, 50);
