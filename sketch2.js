@@ -80,17 +80,15 @@ function modelLoading() {
 }
 
 function restart() {
-	countdownnumber=5;
-	st.style.display = "";
+
    
 }
 
 function win() {
   cd.style.display = "";
   cd.innerHTML="我贏";
-  setTimeout(function(){
-    restart();
-  }, 3000);
+	countdownnumber=5;
+	st.style.display = "";
 }
 
 
