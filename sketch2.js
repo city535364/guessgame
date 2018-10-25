@@ -116,12 +116,13 @@ function gotResults(results) {
   //select('#result').html(msg);
 
   setTimeout(function(){
-    predict();
-  }, 50);
+    clearClass();
+  }, 3000);
 }
 
 // Clear the data in one class
 function clearClass(classIndex) {
   knn.clearClass(classIndex);
+  win();
 }
 
