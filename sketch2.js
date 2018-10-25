@@ -89,6 +89,7 @@ function win() {
   cd.innerHTML="我贏";
 	countdownnumber=5;
 	st.style.display = "";
+	
 }
 
 
