@@ -24,7 +24,7 @@ const cd = document.getElementById("countdown");
 
 
 function countdownfunc(){
-  st.style.display = "none";
+  
  
  cd.innerHTML=countdownnumber;
  if (countdownnumber==0){ 
@@ -52,11 +52,11 @@ function setup() {
   video = createCapture(VIDEO).parent('videoContainer');
   // Create a KNN Image Classifier
 
-  knn = new ml5.KNNImageClassifier(3, 1, modelLoaded, video.elt);
+  knn = new ml5.KNNImageClassifier(3, 1, modelLoading, video.elt);
   knn.load('test.json', modelLoaded);
   
   createButtons();
-  predict()
+  
 }
 
 function createButtons() {
@@ -64,14 +64,15 @@ function createButtons() {
   // Predict Button
   buttonPredict = select('#buttonNew');
 
-  buttonPredict.mousePressed(restart());
+  buttonPredict.mousePressed(rs());
 }
 
 
-function restart() {
+function rs() {
    cd.style.display = "";
    countdownfunc();
-
+   st.style.display = "none";
+   predict();
 }
 
 
