@@ -89,7 +89,7 @@ function modelLoading() {
 
 
 function win() {
-	setTimeout.clear(win_t);
+	
   
   cd.innerHTML="我贏";
 	countdownnumber=5;
