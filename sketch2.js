@@ -12,7 +12,7 @@ KNN Image Classifier example with p5.js
 let knn;
 let video;
 let i = 0;
-var countdownnumber=5;
+var countdownnumber=3;
 var countdownid;
 var predict_t;
 var play_t;
@@ -37,7 +37,7 @@ function countdownfunc(){
   if(countdownid){
    clearTimeout(countdownid);
   }
-  countdownid=setTimeout(countdownfunc,600);
+  countdownid=setTimeout(countdownfunc,500);
  }
 }
  
