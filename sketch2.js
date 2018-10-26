@@ -94,7 +94,9 @@ function win() {
   cd.innerHTML="我贏";
 	countdownnumber=5;
 	st.style.display = "";
-	
+  start_t = setTimeout(function(){
+    countdownfunc();
+  }, 1500);
 }
 
 
@@ -127,7 +129,7 @@ function predict() {
 // Show the results
 function gotResults(results) {
   let msg;
-  p_time++;
+
   i = results.classIndex;
 
   //select('#result').html(msg);
