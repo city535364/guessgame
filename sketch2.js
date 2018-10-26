@@ -24,7 +24,7 @@ const cd = document.getElementById("countdown");
 
 
 function countdownfunc(){
-  
+ 
  
  cd.innerHTML=countdownnumber;
  if (countdownnumber==0){ 
@@ -71,7 +71,8 @@ function createButtons() {
 
 
 function rs() {
-   
+    var audio = new Audio("s.wav");
+ audio.play();
    countdownfunc();
    st.style.display = "none";
    predict();
