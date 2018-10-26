@@ -71,7 +71,7 @@ function createButtons() {
 
 
 function rs() {
-   cd.style.display = "";
+   
    countdownfunc();
    st.style.display = "none";
    predict();
@@ -93,10 +93,11 @@ function win() {
   
   cd.innerHTML="我贏";
 	countdownnumber=5;
+	cd.style.display = "";
 	st.style.display = "";
-  start_t = setTimeout(function(){
-    countdownfunc();
-  }, 1500);
+//  start_t = setTimeout(function(){
+//    countdownfunc();
+//  }, 1500);
 }
 
 
