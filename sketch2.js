@@ -63,8 +63,10 @@ function createButtons() {
  
   // Predict Button
   buttonPredict = select('#buttonNew');
-
-  buttonPredict.mousePressed(rs());
+  buttonPredict.mousePressed(function() {
+    rs();
+  });
+  
 }
 
 
