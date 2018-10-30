@@ -93,7 +93,7 @@ function win() {
 	
   
   cd.innerHTML="我贏";
-	countdownnumber=4;
+	countdownnumber=3;
 	cd.style.display = "";
 	st.style.display = "";
 	document.getElementById("myImg").src ="";
