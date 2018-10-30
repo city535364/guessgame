@@ -37,7 +37,7 @@ function countdownfunc(){
   if(countdownid){
    clearTimeout(countdownid);
   }
-  countdownid=setTimeout(countdownfunc,800);
+  countdownid=setTimeout(countdownfunc,700);
  }
 }
  
